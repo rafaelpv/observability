@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-app
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus,info
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    export:
+      prometheus:
+        enabled: true
+  otlp:
+    metrics:
+      export:
+        url: http://tempo:4317
+        step: 10s
+  tracing:
+    sampling:
+      probability: 1.0
