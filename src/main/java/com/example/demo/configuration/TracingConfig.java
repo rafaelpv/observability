@@ -19,7 +19,7 @@ public class TracingConfig {
     public OpenTelemetry openTelemetry() {
         // Configura o exportador OTLP
         OtlpGrpcSpanExporter spanExporter = OtlpGrpcSpanExporter.builder()
-                .setEndpoint("http://localhost:4317") // Endpoint do OTLP (ajuste conforme necessário)
+                .setEndpoint("http://tempo:4317") // Endpoint do OTLP (ajuste conforme necessário)
                 .build();
 
         // Configura o BatchSpanProcessor
